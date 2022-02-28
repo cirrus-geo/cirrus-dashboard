@@ -1,0 +1,23 @@
+.card {
+  height: 25vh;
+  width: 25vw;
+  border: black solid .2em;
+  margin-bottom: 1vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin-top: 10vh;
+  }
+
+  transform: translateY(0px);
+  transition: .5s;
+
+  &:hover {
+    transform: translateY(-10px);
+    transition: .5s;
+  }
+}

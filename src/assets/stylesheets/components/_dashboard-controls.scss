@@ -1,0 +1,45 @@
+.dashboard-controls {
+
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  label {
+    display: inline-block;
+    margin-right: .5em;
+  }
+
+  select {
+    font-size: 1em;
+  }
+
+  .MuiSelect-select {
+    padding-left: 8px;
+  }
+
+}
+
+.dashboard-controls-control {
+
+  margin: 0 1.4em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  select {
+    margin-left: 1em;
+  }
+
+}

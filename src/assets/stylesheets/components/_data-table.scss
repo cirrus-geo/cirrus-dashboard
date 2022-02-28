@@ -1,0 +1,22 @@
+.data-table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.data-table-row-headers {
+
+  &,
+  .MuiTableRow-head {
+    background: $color-gray7;
+  }
+
+}
+
+.data-table-row-header {
+
+  &,
+  &.MuiTableCell-head {
+    color: $color-gray0;
+  }
+
+}

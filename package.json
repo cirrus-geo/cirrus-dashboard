@@ -1,0 +1,47 @@
+{
+  "name": "cirrus-dashboard",
+  "description": "a dashboard for cirrus",
+  "license": "Apache-2.0",
+  "version": "0.4.0",
+  "author": "Element 84, Inc. <info@element84.com>",
+  "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "axios": "^0.19.2",
+    "gatsby": "^2.23.4",
+    "gatsby-plugin-create-client-paths": "^2.3.4",
+    "gatsby-plugin-react-helmet": "^3.3.4",
+    "gatsby-plugin-resolve-src": "^2.1.0",
+    "gatsby-plugin-sass": "^2.3.4",
+    "gatsby-source-filesystem": "^2.3.11",
+    "node-sass": "^4.14.1",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.10.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "gatsby",
+    "sass",
+    "scss"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "sonar": "sonar-scanner -Dsonar.projectVersion=$npm_package_version",
+    "develop": "gatsby develop",
+    "lint": "Get started linting your code with Eslint and stylelint",
+    "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cirrus-geo/cirrus-dashboard"
+  },
+  "bugs": {
+    "url": "https://github.com/cirrus-geo/cirrus-dashboard/issues"
+  }
+}
