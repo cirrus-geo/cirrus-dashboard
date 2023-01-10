@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // TODO: Create a way to take in as many lines as needed
 const Card = ({className, header, children}) => (
-  <div className="card">
+  <div className={`card ${className}`}>
     <h3>{header}</h3>
     <p>{children}</p>
   </div>

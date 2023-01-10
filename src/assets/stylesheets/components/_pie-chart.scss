@@ -1,0 +1,11 @@
+.pie-chart {
+
+  padding: 2em;
+  margin: 1px auto;
+  width: 80%;
+
+  @include breakpoint(md) {
+    width: 290px;
+  }
+
+}

@@ -2,17 +2,13 @@ import { COLLECTION_STATES } from 'data/collections';
 
 export const DASHBOARD_FILTERS_SINCE = [
   {
-    label: 'All Time',
-    value: 'all',
-    isDefault: true
-  },
-  {
     label: 'Last Hour',
     value: '1h'
   },
   {
     label: 'Last Day',
-    value: '1d'
+    value: '1d',
+    isDefault: true
   },
   {
     label: 'Last Week',
@@ -22,10 +18,6 @@ export const DASHBOARD_FILTERS_SINCE = [
     label: 'Last Month',
     value: '30d'
   },
-  {
-    label: 'Last Year',
-    value: '365d'
-  }
 ];
 
 export const DASHBOARD_FILTERS_SINCE_DEFAULT = DASHBOARD_FILTERS_SINCE.find(({ isDefault }) => isDefault);

@@ -1,31 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { useFetchCollections } from 'hooks';
+import { useFetchMetrics } from 'hooks';
 
-import Dashboard from 'components/Dashboard'
-import DashboardControls from 'components/DashboardControls'
-import Collection from 'components/Collection'
 import Layout from 'components/Layout';
-
-import { DASHBOARD_DEFAULT_FILTERS } from 'data/dashboard';
+import Dashboard from 'components/Dashboard'
+import LineChart from '../components/LineChart';
+import BarChart from '../components/BarChart';
 
 const IndexPage = () => {
-  const [filters, updateFilters] = useState(DASHBOARD_DEFAULT_FILTERS);
 
-  const { collections = [] } = useFetchCollections();
-
-  function handleOnFilter({ filters: updatedFilters }) {
-    updateFilters(updatedFilters);
-  }
+  // Fetch metrics data from API
+  const { metrics = [], state: requestState, } = useFetchMetrics();
+  const { loading = true } = requestState;
 
   return (
     <Layout pageName="home">
+
       <Dashboard>
-        <DashboardControls filters={filters} onFilter={handleOnFilter} />
-        { collections && collections.map((collection = {}) => {
-          return <Collection key={collection.href} collection={collection} since={filters?.since} type="output_collections" />
-        })}
+        <h1>Metrics</h1>
+        <LineChart metrics={metrics} loading={loading} />
+        <BarChart metrics={metrics} loading={loading} />
       </Dashboard>
+      
     </Layout>
   );
 };

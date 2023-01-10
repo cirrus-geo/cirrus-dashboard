@@ -1,11 +1,15 @@
-# Cirrus Dashboard
+# FilmDrop Dashboard
 
-Dashboard for Cirrus processing pipeline.
+FilmDrop Dashboard for displaying metrics and workflows found in the Cirrus processing pipeline.
+
+- [Gatsby](https://www.gatsbyjs.org/) for templating and static site generation.
+- Gatsby relies on [React](https://reactjs.org/) as the UI framework
+- The compiled website is uploaded to s3 ad which point it is served
 
 ## Getting Started
 
 ### Requirements
-* node
+* node 
 * yarn*
 * Environment files
 
@@ -18,9 +22,10 @@ For production builds, you should include an `.env.production` file with the pro
 
 ```
 CIRRUS_API_ENDPOINT="[Endpoint]"
+METRICS_API_ENDPOINT="[Endpoint]"
 ```
 
-### Installing Depdencies
+### Installing Dependencies
 ```
 yarn install
 ```
@@ -34,6 +39,14 @@ yarn develop
 ```
 yarn build
 ```
+
+## Deployment
+
+### Links
+* Live dev link: https://dashboard.dev.demo.filmdrop.io
+* Live prod link: https://dashboard.demo.filmdrop.io
+
+Deployment is handled by gitlab ci scripts: `.gitlab-ci.yml`\
 
 ### Deploying cirrus-dashboard into AWS
 ```
@@ -55,3 +68,10 @@ cd build-deploy && sh ./build-environment.sh $ENVIRONMENT && \
   sh ./update-metadata.sh "${TARGET_ENVIRONMENT}" && \
   echo "Done"
 ```
+
+## Authors
+
+Initial Cirrus Dashboard: https://github.com/cirrus-geo/cirrus-dashboard\
+Primary MVP Dev: Lucy Hutcheson @ Element84\
+Project Structure & DevOps: Hector Machin @ Element84
+

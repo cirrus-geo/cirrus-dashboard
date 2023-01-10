@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `FilmDrop Dashboard`,
+    description: `Cirrus dashboard for the FilmDrop Project`,
+    siteUrl: `https://dashboard.dev.demo.filmdrop.io/`,
+  },
   plugins: [
     'gatsby-plugin-resolve-src',
     'gatsby-plugin-sass',
@@ -17,6 +22,14 @@ module.exports = {
           '/collections/*'
         ]
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        }
+      }
+    }  
   ],
 }

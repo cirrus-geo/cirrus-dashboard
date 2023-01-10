@@ -1,3 +1,26 @@
 .dashboard {
-  padding: 2em;
+  padding: var(--space-sm);
+}
+
+.dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@include breakpoint(md) {
+  .dashboard {
+    padding: var(--space-lg);
+  }
+  .dashboard-header {
+    flex-wrap: nowrap;
+  }
+}
+
+@include breakpoint(xl) {
+  .dashboard {
+    padding: var(--space-xl);
+  }
 }

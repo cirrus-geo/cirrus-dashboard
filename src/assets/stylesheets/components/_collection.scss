@@ -13,13 +13,48 @@
 
 }
 
+.collection-heading {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  a.button {
+
+    background-color: $color-dashboard-dark-gray;
+    color: $color-dashboard-light-gray;
+    border-radius: 6px;
+    padding: 8px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.33s ease-in-out;
+    margin-bottom: 20px;
+    display: inline-block;
+
+    &:hover {
+      background-color: $color-e84-green;
+      color: $color-background;
+    }
+
+    @include breakpoint(xl) {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
 .collection-title {
 
   text-align: left;
+  margin: 1em 0;
 
   &,
   a {
-    color: $color-gray9;
+    color: $color-e84-green;
   }
 
   a {
@@ -29,16 +64,31 @@
 }
 
 .collection-dashboard {
-  background-color: white;
+
+  background-color: $color-dashboard-darker-gray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+}
+
+.collection-metrics {
+  flex-grow: 1;
+
+  @include breakpoint(md) {
+    border-right: solid 1px $color-dashboard-dark-gray;
+  }
+
 }
 
 .collection-meta {
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   list-style: none;
   padding: .6em 1em;
-  border-top: solid 1px $color-gray0;
+  border-top: solid 1px $color-dashboard-dark-gray;
   margin: 0;
 
   li {
@@ -46,15 +96,17 @@
   }
 
   p {
-    color: $color-gray5;
+    color: $color-dashboard-light-gray;
     font-size: .9em;
     font-style: italic;
     margin: 0;
+    font-weight: lighter;
   }
 
 }
 
 .collection-cells {
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -62,13 +114,24 @@
   text-align: center;
   padding: 0;
   margin: 0;
+
+  @include breakpoint(md) {
+    flex-wrap: nowrap;
+  }
+
 }
 
 .collection-cell {
-  flex-shrink: 0;
+
   flex-grow: 1;
-  padding: 2em;
+  padding: 2em 1em;
   margin: 1px;
+  width: 100%;
+
+  @include breakpoint(md) {
+    width: unset;
+  }
+
 }
 
 .collection-cell-header {
@@ -76,14 +139,16 @@
   align-items: center;
   justify-content: center;
   height: 2em;
-  font-size: 1.2vw;
+  font-size: 1.25em;
   margin: 0 0 1em;
+  color: $color-dashboard-light-gray;
 }
 
 .collection-cell-value {
-  font-size: 3vw;
+  font-size: 3.125em;
   font-weight: bold;
   margin: 0;
+  color: $color-dashboard-light-gray;
 }
 
 .collection-not-active {
@@ -111,4 +176,10 @@
     @extend .loading;
   }
 
+}
+
+@include breakpoint(md) {
+  .collection-heading {
+    flex-wrap: nowrap;
+  }
 }
