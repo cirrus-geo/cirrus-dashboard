@@ -1,4 +1,4 @@
-# FilmDrop Dashboard
+# FilmDrop Dashboard for Cirrus
 
 FilmDrop Dashboard for displaying metrics and workflows found in the Cirrus processing pipeline.
 

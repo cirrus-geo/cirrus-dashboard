@@ -17,7 +17,7 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: className}}>
-        <title>FilmDrop Dashboard</title>
+        <title>FilmDrop Dashboard for Cirrus</title>
         <link rel="shortcut icon" type="image/png" id="favicon" href="/filmdrop-icon.png" />
       </Helmet>
 
