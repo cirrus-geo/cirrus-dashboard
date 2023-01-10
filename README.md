@@ -9,13 +9,15 @@ FilmDrop Dashboard for displaying metrics and workflows found in the Cirrus proc
 ## Getting Started
 
 ### Requirements
-* node 
-* yarn*
-* Environment files
+
+- node
+- yarn*
+- Environment files
 
 *If you don't have yarn installed, you should be okay running the project with npm, but keep in mind the dependencies should be updated using yarn.
 
 #### Environment Files
+
 For local development, you should include an `.env.development` file with the proper configuration.
 
 For production builds, you should include an `.env.production` file with the proper configuration.
@@ -26,16 +28,19 @@ METRICS_API_ENDPOINT="[Endpoint]"
 ```
 
 ### Installing Dependencies
+
 ```
 yarn install
 ```
 
 ### Development
+
 ```
 yarn develop
 ```
 
 ### Production Builds
+
 ```
 yarn build
 ```
@@ -43,13 +48,15 @@ yarn build
 ## Deployment
 
 ### Links
-* Live dev link: https://dashboard.dev.demo.filmdrop.io
-* Live prod link: https://dashboard.demo.filmdrop.io
+
+- Live dev link: <https://dashboard.dev.demo.filmdrop.io>
+- Live prod link: <https://dashboard.demo.filmdrop.io>
 
 Deployment is handled by gitlab ci scripts: `.gitlab-ci.yml`\
 
 ### Deploying cirrus-dashboard into AWS
-```
+
+```bash
 export ENVIRONMENT=Development
 export AWS_REGION=us-east-1
 export AWS_DEFAULT_REGION=us-east-1
@@ -68,10 +75,3 @@ cd build-deploy && sh ./build-environment.sh $ENVIRONMENT && \
   sh ./update-metadata.sh "${TARGET_ENVIRONMENT}" && \
   echo "Done"
 ```
-
-## Authors
-
-Initial Cirrus Dashboard: https://github.com/cirrus-geo/cirrus-dashboard\
-Primary MVP Dev: Lucy Hutcheson @ Element84\
-Project Structure & DevOps: Hector Machin @ Element84
-
