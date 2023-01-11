@@ -23,6 +23,7 @@ export default function useFetchCollectionItems({
     state,
   });
 
+  
   // Construct the endpoint we'll use for requests
 
   const paramsToAdd = [];
@@ -45,7 +46,6 @@ export default function useFetchCollectionItems({
   }
 
   // Make the request
-
   const { state: requestState, data: requestData = {} } = useRequest({
     url
   });

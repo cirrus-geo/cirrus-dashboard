@@ -9,11 +9,27 @@
   a {
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    color: $color-dashboard-gray;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.33s ease-in-out;
+    font-size: 15px;
+    &:hover {
+      color: $color-e84-green;
+      svg {
+        left: -5px;
+      }
+    }
   }
 
   svg {
 
     margin: 0 .4em;
+    position: relative;
+    left: 0;
+    transition: left 0.33s ease-in-out;
 
     &:first-child {
       margin-left: 0;

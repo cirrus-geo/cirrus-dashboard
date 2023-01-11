@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <Container>
         <p className="header-title">
-          <Link to="/">Cirrus</Link>
+          <Link to="/">FilmDrop</Link>
         </p>
       </Container>
     </header>

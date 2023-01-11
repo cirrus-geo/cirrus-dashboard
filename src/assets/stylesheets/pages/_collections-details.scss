@@ -1,9 +1,220 @@
 .page-collections-details {
 
-  table {
-    width: 100%;
-    background-color: white;
+  .MuiTableContainer-root {
+
+    max-height: 65vh;
+
   }
+
+  table {
+
+    width: 100%;
+    background-color: $color-dashboard-darker-gray;
+
+  }
+
+  .MuiTableCell-body {
+
+    color: $color-dashboard-light-gray;
+
+  }
+  
+  .MuiTableCell-root {
+    border-color: $color-dashboard-dark-gray;
+    font-size: 0.875em;
+  }
+  
+  .MuiTableCell-stickyHeader {
+
+    background-color: $color-dashboard-dark-gray;
+
+  }
+  
+  .MuiTablePagination-root {
+
+    color: $color-dashboard-light-gray;
+    margin-bottom: 1em;
+
+  }
+
+  .MuiTablePagination-toolbar {
+
+    @include maxbreakpoint(md) {
+
+      flex-wrap: wrap;
+      padding: 0;
+      width: 70%;
+      margin: 1em auto;
+  
+      .MuiTablePagination-caption {
+  
+        width: 60%;
+        margin: 0;
+  
+      }
+  
+      .MuiTablePagination-input, .MuiTablePagination-actions {
+  
+        width: 40%;
+        margin: 0;
+  
+      }
+      
+    }
+
+  }
+
+  .MuiSelect-icon {
+
+    color: $color-dashboard-light-gray;
+
+  }
+
+  .MuiIconButton-root.Mui-disabled {
+
+    color: rgba($color-dashboard-light-gray, 0.5);
+
+  }
+
+  span.step {
+
+    color: $color-background;
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+
+    &.COMPLETED {
+      background-color: $color-e84-green;
+    }
+  
+    &.FAILED {
+      background-color: $color-e84-red;
+    }
+  
+    &.INVALID {
+      background-color: $color-e84-orange;
+    }
+
+    &.ABORTED {
+      background-color: $color-e84-blue;
+    }
+
+    &.PROCESSING {
+      background-color: $color-dashboard-gray;
+    }
+
+  }
+
+  .last_error {
+
+    max-width: 150px;
+    font-size: 90%;
+    min-width: 100px;
+    display: block;
+
+  }
+
+  .view-error {
+
+    text-decoration: underline;
+    color: $color-e84-blue;
+    cursor: pointer;
+    background: transparent;
+    border: 0 none;
+    font-weight: bold;
+
+  }
+
+  .view-last-execution {
+
+    color: $color-dashboard-light-gray;
+    border: 1px solid $color-dashboard-dark-gray;
+    border-radius: 6px;
+    padding: 10px 20px;
+    text-decoration: none;
+    white-space: nowrap;  
+
+    span.icon-arrow-top-right {
+
+      position: relative;
+      display: inline-block;
+      transform: translateX(0);
+      transition: all 0.33s ease-in-out;
+      top: 1px;
+      margin-left: 3px;
+
+    }
+
+    .tooltip {
+
+      position:relative;
+      top: 1px; 
+
+      &::before {
+
+        content: attr(data-text); 
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 190%;
+        width: 130px;
+        padding: 5px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: light;
+        letter-spacing: 0.05em;
+        background: rgba(0,0,0,0.5);
+        color: $color-dashboard-light-gray;
+        text-align: center;
+        opacity:0;
+        transition:.3s opacity;   
+        z-index: 2;
+
+      }
+
+      &::after {
+
+        content: "";
+        position: absolute;
+        bottom: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 10px solid rgba(0,0,0,0.5);
+        border-color: black transparent transparent transparent;
+        opacity:0;
+        transition:.3s opacity;  
+
+      }
+
+    }
+    
+    &:hover {
+
+      background-color: $color-e84-green;
+      color: $color-background;
+
+      span.tooltip::before, span.tooltip::after {
+        opacity: 1;
+      }
+
+      span.icon-arrow-top-right {
+        transform: translateX(3px);
+      }
+
+    }
+  }
+}
+
+.collections-heading {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 
 }
 
@@ -12,12 +223,25 @@
   margin-top: 2em;
 
   h1 {
+
     margin: 0;
+    color: $color-e84-green;
+
   }
 
   p {
-    color: $color-gray6;
+
+    color: $color-dashboard-gray;
     font-weight: bold;
+
+  }
+
+}
+
+@include breakpoint(md) {
+
+  .page-collections-details .collections-heading {
+    flex-wrap: nowrap;
   }
 
 }

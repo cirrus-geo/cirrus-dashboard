@@ -7,7 +7,7 @@
 
   &,
   .MuiTableRow-head {
-    background: $color-gray7;
+    background: $color-dashboard-dark-gray;
   }
 
 }
@@ -16,7 +16,10 @@
 
   &,
   &.MuiTableCell-head {
-    color: $color-gray0;
+    color: $color-dashboard-light-gray;
+    border: 0 none;
   }
 
 }
+
+

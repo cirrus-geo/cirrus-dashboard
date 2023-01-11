@@ -8,21 +8,31 @@
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  color: $color-gray9;
-  background-color: lighten($color-gray0, 3);
+  font-family: var(--font-primary);
+  color: $color-dashboard-light-gray;
+  background-color: $color-background;
+  line-height: var(--body-line-height);
   padding: 0;
   margin: 0;
 }
 
 .wrapper {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-content: center;
+  flex-grow: 1;
+  width: calc(100% - 195px);
+}
+
+@include breakpoint(md) {
+  .wrapper {
+    flex-wrap: nowrap;
+    height: 100vh;
+  }
 }

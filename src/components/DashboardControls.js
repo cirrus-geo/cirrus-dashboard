@@ -1,6 +1,5 @@
 import React from 'react';
-import { Select, MenuItem, InputLabel } from '@material-ui/core';
-
+import PropTypes from 'prop-types';
 
 import { DASHBOARD_FILTERS_SINCE, DASHBOARD_DEFAULT_FILTERS } from 'data/dashboard';
 
@@ -29,18 +28,21 @@ const DashboardControls = ({ additionalControls = [], filters = DASHBOARD_DEFAUL
     <div className="dashboard-controls">
       <ul>
         <li className="dashboard-controls-control">
-          <InputLabel id="dashboard-controls-since">Results Since:</InputLabel>
-          <Select
-            labelId="dashboard-controls-since"
+          <label htmlFor="dashboard-controls-since">Results Since:</label>
+          <select
+            id="dashboard-controls-since"
+            // eslint-disable-next-line react/no-unknown-property
+            variant="filled"
+            className="select"
             value={since}
             onChange={handleOnSinceChange}
           >
             {DASHBOARD_FILTERS_SINCE.map(({label, value} = {}) => {
               return (
-                <MenuItem key={value} value={value}>{ label }</MenuItem>
+                <option key={value} value={value}>{ label }</option>
               )
             })}
-          </Select>
+          </select>
         </li>
         {additionalControls.map(control => {
           const { id, Control } = control;
@@ -53,6 +55,12 @@ const DashboardControls = ({ additionalControls = [], filters = DASHBOARD_DEFAUL
       </ul>
     </div>
   );
+}
+
+DashboardControls.propTypes = {
+  additionalControls: PropTypes.array,
+  onFilter: PropTypes.func,
+  filters: PropTypes.object
 }
 
 export default DashboardControls;

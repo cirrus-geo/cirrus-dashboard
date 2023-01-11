@@ -32,7 +32,8 @@ export default function useRequest({ url, method = defaultMethod }) {
           error: true
         }
       });
-      throw e;
+      console.log("Error: ", e);
+      //throw e;
     }
 
     updateRequestState(prev => {

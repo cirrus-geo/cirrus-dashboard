@@ -4,8 +4,7 @@ import Helmet from 'react-helmet';
 
 import 'assets/stylesheets/application.scss';
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import SideBar from 'components/SideBar';
 
 const Layout = ({ children, pageName }) => {
 
@@ -18,12 +17,13 @@ const Layout = ({ children, pageName }) => {
   return (
     <>
       <Helmet bodyAttributes={{ class: className}}>
-        <title>Cirrus</title>
+        <title>FilmDrop Dashboard for Cirrus</title>
+        <link rel="shortcut icon" type="image/png" id="favicon" href="/filmdrop-icon.png" />
       </Helmet>
+
       <div className="wrapper">
-        <Header />
+        <SideBar />
         <main>{ children }</main>
-        <Footer />
       </div>
     </>
   );
@@ -31,7 +31,8 @@ const Layout = ({ children, pageName }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  pageName: PropTypes.string,
 }
 
 export default Layout;

@@ -1,4 +1,4 @@
-import { friendlyDate } from 'lib/datetime';
+import { friendlyDateWithTime } from 'lib/datetime';
 
 class Item {
   constructor(data) {
@@ -7,6 +7,7 @@ class Item {
     this.updated = data.updated;
     this.state = data.state;
     this.executions = data.executions;
+    this.last_error = data.last_error;
   }
 
   get itemId() {
@@ -15,11 +16,11 @@ class Item {
   }
 
   get createdFriendly() {
-    return friendlyDate(this.created);
+    return friendlyDateWithTime(this.created);
   }
 
   get updatedFriendly() {
-    return friendlyDate(this.updated);
+    return friendlyDateWithTime(this.updated);
   }
 
   get lastExecution() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby';
 
 const Breadcrumbs = ({ crumbs }) => {
@@ -30,6 +31,12 @@ const Breadcrumbs = ({ crumbs }) => {
       })}
     </ul>
   )
+}
+
+Breadcrumbs.propTypes =  {
+  crumbs: PropTypes.array,
+  length: PropTypes.number,
+  map: PropTypes.func
 }
 
 export default Breadcrumbs;
