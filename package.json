@@ -8,23 +8,23 @@
     "@material-ui/core": "^4.10.2",
     "axios": "^1.1.2",
     "chart.js": "^3.9.1",
-    "eslint": "^8.28.0",
-    "eslint-plugin-react": "^7.31.11",
-    "gatsby": "^4.0.0",
-    "gatsby-plugin-create-client-paths": "^2.3.4",
-    "gatsby-plugin-react-helmet": "^3.3.4",
-    "gatsby-plugin-react-svg": "^3.1.0",
+    "eslint": "^8.42.0",
+    "eslint-plugin-react": "^7.32.2",
+    "gatsby": "^5.11.0",
+    "gatsby-plugin-create-client-paths": "^4.9.0",
+    "gatsby-plugin-react-helmet": "^6.11.0",
+    "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-resolve-src": "^2.1.0",
-    "gatsby-plugin-sass": "^5.24.0",
-    "gatsby-source-filesystem": "^4.14.0",
-    "node-sass": "^7.0.3",
+    "gatsby-plugin-sass": "^6.11.0",
+    "gatsby-source-filesystem": "^5.11.0",
     "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "sass": "^1.63.4"
   },
   "keywords": [
     "gatsby",
@@ -42,6 +42,8 @@
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'"
   },
   "resolutions": {
-    "remark-mdx": "1.6.22"
+    "remark-mdx": "1.6.22",
+    "renderkid": ">2.0.7",
+    "semver": "^7.5.3"
   }
 }
