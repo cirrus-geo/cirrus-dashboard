@@ -4,6 +4,9 @@
   "license": "Apache-2.0",
   "version": "0.5.0",
   "author": "Element 84, Inc. <info@element84.com>",
+  "engines": {
+    "node": ">=18.0.0 <19.0.0"
+  },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "axios": "^1.1.2",
