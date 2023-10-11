@@ -10,49 +10,40 @@ FilmDrop Dashboard for displaying metrics and workflows found in the Cirrus proc
 
 ### Requirements
 
-- node
-- yarn*
-- Environment files
+- Node.js 18
+- Yarn 1.x [installation](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+- Dotenv files
 
-*If you don't have yarn installed, you should be okay running the project with npm, but keep in mind the dependencies should be updated using yarn.
-
-#### Environment Files
+#### Dotenv Files
 
 For local development, you should include an `.env.development` file with the proper configuration.
 
 For production builds, you should include an `.env.production` file with the proper configuration.
 
-```
+```shell
 CIRRUS_API_ENDPOINT="[Endpoint]"
 METRICS_API_ENDPOINT="[Endpoint]"
 ```
 
 ### Installing Dependencies
 
-```
+```shell
 yarn install
 ```
 
 ### Development
 
-```
+```shell
 yarn develop
 ```
 
 ### Production Builds
 
-```
+```shell
 yarn build
 ```
 
 ## Deployment
-
-### Links
-
-- Live dev link: <https://dashboard.dev.demo.filmdrop.io>
-- Live prod link: <https://dashboard.demo.filmdrop.io>
-
-Deployment is handled by gitlab ci scripts: `.gitlab-ci.yml`\
 
 ### Deploying cirrus-dashboard into AWS
 
