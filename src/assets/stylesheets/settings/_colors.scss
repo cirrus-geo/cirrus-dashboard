@@ -233,6 +233,7 @@ $color-e84-green: #6CC24A;
 $color-e84-red: #E76464;
 $color-e84-blue: #5EACCB;
 $color-e84-orange: #EE9D52;
+$color-e84-purple: #9B7EDE;
 
 .bg-green {
   background-color: $color-e84-green;
@@ -245,6 +246,9 @@ $color-e84-orange: #EE9D52;
 }
 .bg-orange {
   background-color: $color-e84-orange;
+}
+.bg-purple {
+  background-color: $color-e84-purple;
 }
 
 $color-dashboard-lighter-gray: #dedede;
