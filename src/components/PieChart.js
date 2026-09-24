@@ -17,7 +17,7 @@ ChartJS.register(
 const PieChart = ({cellData}) => {
 
   const data = {
-    labels: ['Completed', 'Failed'],
+    labels: ['Succeeded', 'Failed'],
     datasets: [
       {
         data: cellData,

@@ -73,7 +73,7 @@ const LineChart = ({ metrics, loading }) => {
     for(i=0; i < metricsFilteredData.length; i++){
       for(j=0; j < metricsFilteredData[i].states.length; j++) {
         switch(metricsFilteredData[i].states[j].state) {
-          case "COMPLETED":
+          case "SUCCEEDED":
             completedMetrics.push(metricsFilteredData[i].states[j].unique_count)
             break;
           case "FAILED":
@@ -115,7 +115,7 @@ const LineChart = ({ metrics, loading }) => {
     labels: metricsLabels,
     datasets: [
       {
-        label: 'Completed',
+        label: 'Succeeded',
         data: completedMetrics,
         backgroundColor: '#6CC24A',
         borderColor: '#6CC24A',
@@ -201,7 +201,7 @@ const LineChart = ({ metrics, loading }) => {
           <h2>Unique Payloads Processed</h2>
           { !loading && hasItems && (
             <ul className="legend">
-              <li><span className="legend bg-green"></span> Completed</li>
+              <li><span className="legend bg-green"></span> Succeeded</li>
               <li><span className="legend bg-red"></span> Failed</li>
               <li><span className="legend bg-blue"></span> Aborted</li>
               <li><span className="legend bg-orange"></span> Invalid</li>

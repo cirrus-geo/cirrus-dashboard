@@ -96,7 +96,7 @@ const Collection = ({ collection, since, type }) => {
                   value = Number(value.substr(0, value.length - 1)); /* remove + character at the end of largest number for pie chart */
                 }
 
-                if ( id === "COMPLETED" ) {
+                if ( id === "SUCCEEDED" ) {
                   pieChartData.push(value);
                 }
                 if ( id === "FAILED" ) {

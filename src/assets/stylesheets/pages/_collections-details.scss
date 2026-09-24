@@ -86,7 +86,7 @@
     width: 100%;
     text-align: center;
 
-    &.COMPLETED {
+    &.SUCCEEDED {
       background-color: $color-e84-green;
     }
   
@@ -107,6 +107,10 @@
     }
 
     &.PROCESSING {
+      background-color: $color-dashboard-gray;
+    }
+
+    &.CLAIMED {
       background-color: $color-dashboard-gray;
     }
 
