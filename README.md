@@ -25,6 +25,12 @@ CIRRUS_API_ENDPOINT="[Endpoint]"
 METRICS_API_ENDPOINT="[Endpoint]"
 ```
 
+The dashboard automatically detects whether the connected Cirrus API is v1
+(pre-2.0.0, which used the `COMPLETED` state name) or v2 (which uses
+`SUCCEEDED`) from the state values it receives, and displays the matching
+terminology ("Completed" vs "Succeeded") accordingly. No configuration is
+required.
+
 ### Installing Dependencies
 
 ```shell

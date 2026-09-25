@@ -5,6 +5,7 @@ import LoadingAnimation from './LoadingAnimation';
 import MetricsControls from 'components/MetricsControls'
 
 import { friendlyDateWithTime, friendlyDate } from 'lib/datetime';
+import { normalizeState, stateLabel } from 'lib/state';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,6 +33,7 @@ const BarChart = ({ metrics, loading }) => {
   const abortedMetrics = [];
   const invalidMetrics = [];
   const claimedMetrics = [];
+  let succeededLabel = stateLabel('SUCCEEDED');
 
   // Setup data for charts to digest
   function handleDataChange() {
@@ -70,8 +72,9 @@ const BarChart = ({ metrics, loading }) => {
     var j ;
     for(i=0; i < metricsFilteredData.length; i++){
       for(j=0; j < metricsFilteredData[i].states.length; j++) {
-        switch(metricsFilteredData[i].states[j].state) {
+        switch(normalizeState(metricsFilteredData[i].states[j].state)) {
           case "SUCCEEDED":
+            succeededLabel = stateLabel(metricsFilteredData[i].states[j].state);
             completedMetrics.push(metricsFilteredData[i].states[j].count)
             break;
           case "FAILED":
@@ -137,7 +140,7 @@ const BarChart = ({ metrics, loading }) => {
         stack: 'Stack 0',
       },
       {
-        label: 'Succeeded',
+        label: succeededLabel,
         data: completedMetrics,
         backgroundColor: '#6CC24A',
         stack: 'Stack 0',
@@ -194,7 +197,7 @@ const BarChart = ({ metrics, loading }) => {
           <h2>Non-Unique Payloads Processed</h2>
           { !loading && hasItems && (
             <ul className="legend">
-              <li><span className="legend bg-green"></span> Succeeded</li>
+              <li><span className="legend bg-green"></span> { succeededLabel }</li>
               <li><span className="legend bg-red"></span> Failed</li>
               <li><span className="legend bg-blue"></span> Aborted</li>
               <li><span className="legend bg-orange"></span> Invalid</li>

@@ -63,6 +63,7 @@ const Collection = ({ collection, since, type }) => {
   }
 
   const pieChartData = [];
+  const pieChartLabels = [];
 
   return (
     <section className={collectionClass}>
@@ -98,9 +99,11 @@ const Collection = ({ collection, since, type }) => {
 
                 if ( id === "SUCCEEDED" ) {
                   pieChartData.push(value);
+                  pieChartLabels.push(label);
                 }
                 if ( id === "FAILED" ) {
                   pieChartData.push(value);
+                  pieChartLabels.push(label);
                 }
 
                 return (
@@ -126,7 +129,7 @@ const Collection = ({ collection, since, type }) => {
           </ul>
         </div>
         <div className="pie-chart">
-          <PieChart cellData={ pieChartData } />
+          <PieChart cellData={ pieChartData } labels={ pieChartLabels } />
         </div>
     </div>
     </section>

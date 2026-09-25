@@ -1,6 +1,7 @@
 import { useRequest } from 'hooks';
 
 import { COLLECTION_STATES } from 'data/collections';
+import { normalizeState, stateLabel } from 'lib/state';
 
 const errorBase = 'Failed to fetch collection';
 
@@ -34,10 +35,11 @@ export default function useFetchCollection({ href, since = 'all' }) {
   };
 
   Object.keys(counts).forEach(key => {
-    const mapping = COLLECTION_STATES.find(({ id } = {}) => id === key);
+    const mapping = COLLECTION_STATES.find(({ id } = {}) => id === normalizeState(key));
 
     collectionData.counts[key] = {
       ...mapping,
+      label: stateLabel(key),
       count: counts[key]
     }
   });
