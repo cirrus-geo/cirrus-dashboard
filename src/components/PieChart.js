@@ -14,10 +14,10 @@ ChartJS.register(
   Legend
 );
 
-const PieChart = ({cellData}) => {
+const PieChart = ({cellData, labels}) => {
 
   const data = {
-    labels: ['Completed', 'Failed'],
+    labels,
     datasets: [
       {
         data: cellData,
@@ -34,7 +34,8 @@ const PieChart = ({cellData}) => {
 }
 
 PieChart.propTypes = {
-  cellData: PropTypes.array
+  cellData: PropTypes.array,
+  labels: PropTypes.array
 };
 
 export default PieChart;

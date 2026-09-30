@@ -25,6 +25,11 @@ CIRRUS_API_ENDPOINT="[Endpoint]"
 METRICS_API_ENDPOINT="[Endpoint]"
 ```
 
+Cirrus v1 (pre-2.0.0) named its terminal success state `COMPLETED`, while v2
+names it `SUCCEEDED`. The dashboard treats the two as the same state and
+displays whichever term the connected API reports, so both versions work
+without configuration.
+
 ### Installing Dependencies
 
 ```shell

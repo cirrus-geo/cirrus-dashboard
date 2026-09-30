@@ -1,7 +1,7 @@
 export const COLLECTION_STATES = [
   {
-    id: 'COMPLETED',
-    label: 'Completed'
+    id: 'SUCCEEDED',
+    label: 'Succeeded'
   },
   {
     id: 'FAILED',
@@ -14,6 +14,10 @@ export const COLLECTION_STATES = [
   {
     id: 'PROCESSING',
     label: 'Processing'
+  },
+  {
+    id: 'CLAIMED',
+    label: 'Claimed'
   },
   {
     id: 'ABORTED',

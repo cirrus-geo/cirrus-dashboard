@@ -5,6 +5,7 @@ import LoadingAnimation from './LoadingAnimation';
 import MetricsControls from 'components/MetricsControls'
 
 import { friendlyDateWithTime, friendlyDate } from 'lib/datetime';
+import { normalizeState, stateLabel } from 'lib/state';
 import {  
   Chart as ChartJS,
   CategoryScale,
@@ -34,6 +35,7 @@ const LineChart = ({ metrics, loading }) => {
   const abortedMetrics = [];
   const invalidMetrics = [];
   const claimedMetrics = [];
+  let succeededLabel = stateLabel('SUCCEEDED');
 
   // Setup data for charts to digest
   function handleDataChange() {
@@ -72,8 +74,9 @@ const LineChart = ({ metrics, loading }) => {
     var j ;
     for(i=0; i < metricsFilteredData.length; i++){
       for(j=0; j < metricsFilteredData[i].states.length; j++) {
-        switch(metricsFilteredData[i].states[j].state) {
-          case "COMPLETED":
+        switch(normalizeState(metricsFilteredData[i].states[j].state)) {
+          case "SUCCEEDED":
+            succeededLabel = stateLabel(metricsFilteredData[i].states[j].state);
             completedMetrics.push(metricsFilteredData[i].states[j].unique_count)
             break;
           case "FAILED":
@@ -115,7 +118,7 @@ const LineChart = ({ metrics, loading }) => {
     labels: metricsLabels,
     datasets: [
       {
-        label: 'Completed',
+        label: succeededLabel,
         data: completedMetrics,
         backgroundColor: '#6CC24A',
         borderColor: '#6CC24A',
@@ -201,7 +204,7 @@ const LineChart = ({ metrics, loading }) => {
           <h2>Unique Payloads Processed</h2>
           { !loading && hasItems && (
             <ul className="legend">
-              <li><span className="legend bg-green"></span> Completed</li>
+              <li><span className="legend bg-green"></span> { succeededLabel }</li>
               <li><span className="legend bg-red"></span> Failed</li>
               <li><span className="legend bg-blue"></span> Aborted</li>
               <li><span className="legend bg-orange"></span> Invalid</li>

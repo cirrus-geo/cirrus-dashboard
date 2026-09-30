@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import { FaChevronLeft } from 'react-icons/fa';
 
-import { useFetchCollectionItems } from 'hooks';
+import { useFetchCollection, useFetchCollectionItems } from 'hooks';
 
 import Layout from 'components/Layout';
 import Dashboard from 'components/Dashboard';
@@ -14,7 +14,9 @@ import Breadcrumbs from 'components/Breadcrumbs';
 import Modal from 'components/Modal';
 import LoadingAnimation from '../../components/LoadingAnimation';
 
-import { DASHBOARD_DEFAULT_FILTERS, DASHBOARD_COLLECTION_STATES, DASHBOARD_COLLECTION_STATES_DEFAULT } from 'data/dashboard';
+import { DASHBOARD_DEFAULT_FILTERS, DASHBOARD_COLLECTION_STATES_DEFAULT } from 'data/dashboard';
+import { COLLECTION_STATES } from 'data/collections';
+import { normalizeState, stateLabel } from 'lib/state';
 
 const DEFAULT_COLLECTION_FILTERS = {
   ...DASHBOARD_DEFAULT_FILTERS,
@@ -48,6 +50,21 @@ const CollectionsDetailsPage = ({ collectionsId, workflowId }) => {
   const { items } = data;
   const { loading } = requestState;
 
+  // The counts are keyed by the API's own state names, so filtering by one of them
+  // works against both v1 (COMPLETED) and v2 (SUCCEEDED) without translation.
+  const { data: { counts = {} } = {} } = useFetchCollection({
+    href: `${process.env.CIRRUS_API_ENDPOINT}/${collectionsId}/workflow-${workflowId}`,
+    since
+  });
+
+  const stateOptions = [
+    DASHBOARD_COLLECTION_STATES_DEFAULT,
+    ...COLLECTION_STATES.map(({ id, label }) => {
+      const reported = Object.keys(counts).find(key => normalizeState(key) === id);
+      return reported ? { id: reported, label: stateLabel(reported) } : { id, label };
+    })
+  ];
+
   const hasItems = Array.isArray(items) && items.length > 0;
   const canLoadMore = typeof loadMore === 'function';
 
@@ -73,7 +90,7 @@ const CollectionsDetailsPage = ({ collectionsId, workflowId }) => {
       Header: 'State',
       Cell: (item) => {
         const { state } = item;
-        return <span className={`step ${ state }`}>{ state }</span>
+        return <span className={`step ${ state }`}>{ item.stateLabel }</span>
       }
     },
     {
@@ -165,7 +182,7 @@ const CollectionsDetailsPage = ({ collectionsId, workflowId }) => {
                       value={filters.state}
                       onChange={handleOnChangeState}
                     >
-                      {DASHBOARD_COLLECTION_STATES.map(({label, id} = {}) => {
+                      {stateOptions.map(({label, id} = {}) => {
                         return (
                           <option key={id} value={id}>{ label }</option>
                         )
