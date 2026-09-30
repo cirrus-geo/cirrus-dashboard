@@ -18,5 +18,9 @@ export const COLLECTION_STATES = [
   {
     id: 'ABORTED',
     label: 'Aborted'
+  },
+  {
+    id: 'CLAIMED',
+    label: 'Claimed'
   }
 ];

@@ -102,6 +102,10 @@
       background-color: $color-e84-blue;
     }
 
+    &.CLAIMED {
+      background-color: $color-e84-purple;
+    }
+
     &.PROCESSING {
       background-color: $color-dashboard-gray;
     }

@@ -33,6 +33,7 @@ const LineChart = ({ metrics, loading }) => {
   const failedMetrics = [];
   const abortedMetrics = [];
   const invalidMetrics = [];
+  const claimedMetrics = [];
 
   // Setup data for charts to digest
   function handleDataChange() {
@@ -83,6 +84,9 @@ const LineChart = ({ metrics, loading }) => {
             break;
           case "INVALID":
             invalidMetrics.push(metricsFilteredData[i].states[j].unique_count)
+            break;
+          case "CLAIMED":
+            claimedMetrics.push(metricsFilteredData[i].states[j].unique_count)
             break;
           default: 
             break;
@@ -136,6 +140,13 @@ const LineChart = ({ metrics, loading }) => {
         data: invalidMetrics,
         backgroundColor: '#EE9D52',
         borderColor: '#EE9D52',
+        borderWidth: 2,
+      },
+      {
+        label: 'Claimed',
+        data: claimedMetrics,
+        backgroundColor: '#9B7EDE',
+        borderColor: '#9B7EDE',
         borderWidth: 2,
       },
     ],
@@ -194,6 +205,7 @@ const LineChart = ({ metrics, loading }) => {
               <li><span className="legend bg-red"></span> Failed</li>
               <li><span className="legend bg-blue"></span> Aborted</li>
               <li><span className="legend bg-orange"></span> Invalid</li>
+              <li><span className="legend bg-purple"></span> Claimed</li>
             </ul>
           ) }
         </div>

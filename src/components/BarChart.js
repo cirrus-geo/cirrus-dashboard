@@ -31,6 +31,7 @@ const BarChart = ({ metrics, loading }) => {
   const failedMetrics = [];
   const abortedMetrics = [];
   const invalidMetrics = [];
+  const claimedMetrics = [];
 
   // Setup data for charts to digest
   function handleDataChange() {
@@ -82,6 +83,9 @@ const BarChart = ({ metrics, loading }) => {
           case "INVALID":
             invalidMetrics.push(metricsFilteredData[i].states[j].count)
             break;
+          case "CLAIMED":
+            claimedMetrics.push(metricsFilteredData[i].states[j].count)
+            break;
           default: 
             break;
         }
@@ -108,6 +112,12 @@ const BarChart = ({ metrics, loading }) => {
   const data = { 
     labels: metricsLabels,
     datasets: [
+      {
+        label: 'Claimed',
+        data: claimedMetrics,
+        backgroundColor: '#9B7EDE',
+        stack: 'Stack 0',
+      },
       {
         label: 'Invalid',
         data: invalidMetrics,
@@ -188,6 +198,7 @@ const BarChart = ({ metrics, loading }) => {
               <li><span className="legend bg-red"></span> Failed</li>
               <li><span className="legend bg-blue"></span> Aborted</li>
               <li><span className="legend bg-orange"></span> Invalid</li>
+              <li><span className="legend bg-purple"></span> Claimed</li>
             </ul>
           ) }
         </div>
